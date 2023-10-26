@@ -6,6 +6,9 @@
       required: false
       default: 'true'
   outputs:
+    random-number:
+      description: "Random number"
+      value: ${{ steps.random-number-generator.outputs.random-number }}
     used-cache:
       description: 'Whether cache was used'
       value: ${{ steps.install.outputs.cacheValue }}
@@ -13,6 +16,10 @@
   runs:
       using: 'composite'
       steps:
+          - name: Random Step generator
+            id: random-number-generator
+            run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+            shell: bash
           - name: Cache dependencies
             if: inputs.cachingInput == 'true'
             id: cache
@@ -25,6 +32,6 @@
             id: install
             run: |
               npm ci
-              echo "cacheValue='${{ inputs.cachingInput }}' >> $GITHUB_OUTPUT"
+              echo "cacheValue=${{ inputs.cachingInput }}" >> $GITHUB_OUTPUT
             shell: bash
 
