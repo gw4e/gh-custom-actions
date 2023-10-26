@@ -38,8 +38,8 @@ jobs:
       - name: Get the file created in the docker entrypoint.sh
         run: |
            cd $GITHUB_WORKSPACE
-           cat coucou.txt
-           ls
+           cat result.txt
+           
 
   hello_world_use_custom_actions_js:
     runs-on: ubuntu-latest
