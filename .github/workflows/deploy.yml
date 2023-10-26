@@ -20,6 +20,10 @@ jobs:
           echo "Random generated : ${{steps.cacheStep.outputs.random-number }}"
       - name: Lint code
         run: npm run lint
+      - name: Call JS Action
+        id : calljsaction
+        uses: ./.github/actions/js-actions
+
   test:
     runs-on: ubuntu-latest
     steps:
