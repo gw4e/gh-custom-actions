@@ -25,6 +25,6 @@
             id: install
             run: |
               npm ci
-              echo "cacheValue='${{ inputs.caching }}' >> $GITHUB_OUTPUT"
+              echo "cacheValue='${{ inputs.cachingInput }}' >> $GITHUB_OUTPUT"
             shell: bash
 
