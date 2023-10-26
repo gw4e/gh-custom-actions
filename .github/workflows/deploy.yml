@@ -33,8 +33,12 @@ jobs:
         with:
           who-to-greet: 'Docker'
       # Use the output from the `hello` step
-      - name: Get the output time
+      - name: Get the output time xxx
         run: echo "The time was ${{ steps.hellodocker.outputs.time }}"
+      - name: Get the file created in the docker entrypoint.sh
+        run: |
+           cd $GITHUB_WORKSPACE
+           ls
 
   hello_world_use_custom_actions_js:
     runs-on: ubuntu-latest
