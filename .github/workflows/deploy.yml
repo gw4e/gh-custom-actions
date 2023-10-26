@@ -23,7 +23,14 @@ jobs:
       - name: Call JS Action
         id : calljsaction
         uses: ./.github/actions/js-actions
-
+  usecustomjsaction:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Call JS Action
+        id : calljsaction
+        uses: ./.github/actions/js-actions
   test:
     runs-on: ubuntu-latest
     steps:
