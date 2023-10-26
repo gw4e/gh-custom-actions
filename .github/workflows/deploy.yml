@@ -15,7 +15,9 @@ jobs:
         with:
           cachingInput: 'false'
       - name: Output information
-        run: echo "Cache used ? ${{steps.cacheStep.outputs.used-cache }}"
+        run: |
+          echo "Cache used ? ${{steps.cacheStep.outputs.used-cache }}"
+          echo "Random generated : ${{steps.cacheStep.outputs.random-number }}"
       - name: Lint code
         run: npm run lint
   test:
